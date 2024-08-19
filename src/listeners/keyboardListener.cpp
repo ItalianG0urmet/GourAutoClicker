@@ -46,11 +46,9 @@ LRESULT CALLBACK KeyBoardListener::KeyboardProc(int nCode, WPARAM wParam, LPARAM
 		}
 		else if (!delPressed && wParam == WM_KEYDOWN && pKeyboard->vkCode == VK_BACK) {
 			delPressed = true;
-			std::cout << "true";
 		}
 		else if (delPressed && wParam == WM_KEYUP && pKeyboard->vkCode == VK_BACK) {
 			delPressed = false;
-			std::cout << "false";
 		}
 
 
