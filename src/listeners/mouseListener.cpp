@@ -50,13 +50,19 @@ void MouseListener::startInputSenderLeft() {
 
 	while (true) {
 		if (isEnabledLeft && holdingLeft) {
+			
+			if (randomizer.shouldPause()) Sleep(randomizer.getRandomPauseDuration());
+			
 			Sleep(randomizer.getRandomDelay());
 			ip.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
 			SendInput(1, &ip, sizeof(INPUT));
-			Sleep(randomizer.getRandomDelay());
+
+			Sleep(randomizer.getRandomHoldDuration());
 			ip.mi.dwFlags = MOUSEEVENTF_LEFTUP;
 			SendInput(1, &ip, sizeof(INPUT));
+
 			Sleep(17 + randomizer.getRandomDelay());
+			
 		}
 	}
 }
